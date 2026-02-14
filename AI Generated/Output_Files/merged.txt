@@ -1,0 +1,27 @@
+USER       PID    PPID   LWP    NLWP   %CPU  %MEM  VSZ     RSS     TTY      STAT   START  TIME   COMMAND
+root       1      0      1      1      0.0   0.1   21672   12004   ?        Ss     14:30  0:01   /sbin/init
+root       2      1      2      2      0.0   0.0   3072    1792    ?        Sl     14:30  0:00   /init
+root       9      2      9      2      0.0   0.0   3072    1792    ?        Sl     14:30  0:00   plan9 --control-socket 7 --log-level 4 --server-fd 8 --pipe-fd 10 --log-truncate
+root       45     1      45     1      0.0   0.1   66840   15076   ?        S<s    14:30  0:00   /usr/lib/systemd/systemd-journald
+root       96     1      96     1      0.0   0.0   25052   6272    ?        Ss     14:30  0:01   /usr/lib/systemd/systemd-udevd
+systemd+   154    1      154    1      0.0   0.1   21456   12672   ?        Ss     14:30  0:00   /usr/lib/systemd/systemd-resolved
+systemd+   159    1      159    2      0.0   0.0   91024   7552    ?        Ssl    14:30  0:00   /usr/lib/systemd/systemd-timesyncd
+root       174    1      174    1      0.0   0.0   4236    2432    ?        Ss     14:30  0:00   /usr/sbin/cron -f -P
+message+   175    1      175    1      0.0   0.0   9532    4864    ?        Ss     14:30  0:00   @dbus-daemon --system --address=systemd: --nofork --nopidfile --systemd-activation --syslog-only
+root       194    1      194    1      0.0   0.1   17968   8320    ?        Ss     14:30  0:00   /usr/lib/systemd/systemd-logind
+root       206    1      206    8      0.0   0.1   1756096 12672   ?        Ssl    14:30  0:00   /usr/libexec/wsl-pro-service -vv
+syslog     210    1      210    4      0.0   0.0   222508  5120    ?        Ssl    14:30  0:00   /usr/sbin/rsyslogd -n -iNONE
+root       215    1      215    1      0.0   0.0   3160    1920    hvc0     Ss+    14:30  0:00   /sbin/agetty -o -p -- \u --noclear --keep-baud - 115200,38400,9600 vt220
+root       220    1      220    1      0.0   0.0   3116    1792    tty1     Ss+    14:30  0:00   /sbin/agetty -o -p -- \u --noclear - linux
+root       226    1      226    2      0.0   0.2   107028  22272   ?        Ssl    14:30  0:00   /usr/bin/python3 /usr/share/unattended-upgrades/unattended-upgrade-shutdown --wait-for-signal
+root       299    2      299    1      0.0   0.0   3080    1024    ?        Ss     14:30  0:00   /init
+root       303    299    303    1      0.0   0.0   3096    1156    ?        S      14:30  0:00   /init
+kailash    306    303    306    1      0.0   0.1   10080   8960    pts/0    Ss     14:30  0:00   -bash
+root       316    2      316    1      0.0   0.0   6688    4096    pts/1    Ss     14:30  0:00   /bin/login -f
+kailash    366    1      366    1      0.0   0.1   20320   11008   ?        Ss     14:30  0:00   /usr/lib/systemd/systemd --user
+kailash    367    366    367    1      0.0   0.0   21152   3516    ?        S      14:30  0:00   (sd-pam)
+kailash    393    316    393    1      0.0   0.1   9884    8832    pts/1    S+     14:30  0:00   -bash
+kailash    1804   306    1804   1      5.1   0.1   16836   11392   pts/0    S+     15:35  0:00   python3 auto_runner.py
+kailash    1810   1804   1810   1      0.0   0.0   2684    1408    pts/0    S+     15:35  0:00   ./my_ps_ai
+kailash    1811   -1     -1     0      0.0   0.0   2804    1536    pts/0    S+     15:35  0:00   sh -c -- ps auxww > temp_aux.txt
+kailash    1812   -1     -1     0      16.6  0.0   8284    4096    pts/0    R+     15:35  0:00   ps auxww
