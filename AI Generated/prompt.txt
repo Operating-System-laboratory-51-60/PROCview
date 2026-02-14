@@ -1,0 +1,10 @@
+do one thing
+
+Prompt:
+Write a C program that behaves like a custom "my_ps" command.
+The program should merge the output of two Linux commands: "ps aux" and "ps -eLf".
+1. It must capture USER, PID, %CPU, %MEM, VSZ, RSS, TTY, STAT, START, TIME, and COMMAND from "ps aux".
+2. It must capture PPID (Parent PID), LWP (Thread ID), and NLWP (Number of threads) from "ps -eLf" by matching the PIDs.
+3. The output should be combined into a single file named "merged.txt" with aligned columns.
+4. The program should automatically display the content of "merged.txt" in the terminal after processing.
+Hints: Use system() to dump outputs to temp files, then use fopen/fscanf to read and merge them.
