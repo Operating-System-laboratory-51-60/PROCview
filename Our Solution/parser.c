@@ -21,4 +21,37 @@ int parse_aux_line(FILE *fp,ProcessInfo *p)
     return 1;
 }
 
+// Scans x2.txt to find the PPID and Thread info for a specific PID
+int find_elf_info(int target_pid,int *ppid,int *lwp,int *nlwp)
+{
+    FILE *fp = fopen("x2.txt", "r");
+    if(!fp) return 0;
+
+    char buffer[1024];
+    // Skip the header line
+    fgets(buffer, 1024, fp);
+
+    // ps -eLf format: UID PID PPID LWP C NLWP
+    char d_uid[32], d_dummy[256];
+    int curr_pid,curr_ppid,curr_lwp,dummy_c,curr_nlwp;
+
+    int found = 0;
+    while(fscanf(fp,"%s %d %d %d %d %d",d_uid,&curr_pid,&curr_ppid,&curr_lwp,&dummy_c,&curr_nlwp) == 6)
+    {
+        
+        // Advance to next line
+        fgets(buffer,1024,fp);
+        if(curr_pid == target_pid)
+        {
+            *ppid = curr_ppid;
+            *lwp = curr_lwp;
+            *nlwp = curr_nlwp;
+            found = 1;
+            break; // Stop after finding match
+        }
+    }
+
+    fclose(fp);
+    return found;
+}
 
